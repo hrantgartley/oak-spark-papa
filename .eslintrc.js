@@ -4,5 +4,6 @@ module.exports = {
     extends: ["eslint-config-mfe/eslintrc.es6.js"],
     rules: {
         quotes: "off",
+        "node/no-unsupported-features/es-syntax": "off",
     },
 };
