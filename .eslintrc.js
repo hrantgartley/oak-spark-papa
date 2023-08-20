@@ -5,5 +5,7 @@ module.exports = {
     rules: {
         quotes: "off",
         "node/no-unsupported-features/es-syntax": "off",
+
+        semi: [2, "never"],
     },
-};
+}
