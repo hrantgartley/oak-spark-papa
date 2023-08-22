@@ -7,5 +7,6 @@ module.exports = {
         "node/no-unsupported-features/es-syntax": "off",
 
         semi: [2, "never"],
+        "no-console": "off",
     },
 }
