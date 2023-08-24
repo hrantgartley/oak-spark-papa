@@ -9,7 +9,6 @@ route.get("/", (_req, res) => {
 })
 
 if (![80, 443, undefined, NaN].includes(PORT)) {
-    // comment
     route.listen(PORT, () => {
         console.log(`listening on port ${PORT}`)
     })
