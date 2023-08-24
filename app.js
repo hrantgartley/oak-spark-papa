@@ -1,7 +1,7 @@
 const express = require("express")
 
 const route = express()
-const Message = "Hello from Nodejs"
+const Message = "<h2>Hello from Nodejs</h2>"
 const PORT = 3000
 
 route.get("/", (_req, res) => {
