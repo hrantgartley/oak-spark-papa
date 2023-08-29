@@ -1,11 +1,13 @@
 const express = require("express")
-
 const route = express()
-const Message = "<h2>Hello from Nodejs</h2>"
 const PORT = 3000
+route.set("view engine", "ejs")
 
-route.get("/", (_req, res) => {
-    res.send(Message)
+let myServer = "variable from server"
+route.get("/meep", (_req, res) => {
+    res.render("index", {
+        myVariableClient: myServer,
+    })
 })
 
 if (![80, 443, undefined, NaN].includes(PORT)) {
