@@ -2,6 +2,7 @@ const express = require("express")
 const route = express()
 const PORT = 3000
 let myServer = "variable from server"
+const portArray = [80, 443, undefined, NaN]
 
 route.set("view engine", "ejs")
 
@@ -10,7 +11,6 @@ route.get("/meep", (_req, res) => {
         myVariableClient: myServer,
     })
 })
-const portArray = [80, 443, undefined, NaN]
 if (!portArray.includes(PORT)) {
     route.listen(PORT, () => {
         console.log(`listening on port ${PORT}`)
