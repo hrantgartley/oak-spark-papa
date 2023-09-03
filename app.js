@@ -1,20 +1,39 @@
 const express = require("express")
-const route = express()
-const PORT = 3000
-let myServer = "variable from server"
-const portArray = [80, 443, undefined, NaN]
+const app = express()
+const bodyParser = require("body-parser")
+const port = process.env.PORT || 3000
+const portArray = [80, 443, undefined, NaN, null]
+app.set("view engine", "ejs")
+app.use(bodyParser.urlencoded({ extended: true }))
 
-route.set("view engine", "ejs")
+4
+let myVariableServer = "soft coded server data"
 
-route.get("/meep", (_req, res) => {
+app.get("/meep", function (_req, res) {
     res.render("index", {
-        myVariableClient: myServer,
+        myVariableClient: myVariableServer,
     })
 })
-if (!portArray.includes(PORT)) {
-    route.listen(PORT, () => {
-        console.log(`listening on port ${PORT}`)
+
+app.post("/postClientData", function (req, res) {
+    console.log("body: ", req.body)
+    console.log("user Name: ", req.body.userName)
+
+    res.render("index", {
+        myVariableClient: req.body.userName,
     })
+})
+
+app.get("/", function (_req, res) {
+    res.send("<h1>Hello World From Express & a PaaS/Render</h1>")
+})
+
+app.get("/whatever", function (_req, res) {
+    res.sendFile(__dirname + "/index.html")
+})
+
+if (!portArray.includes(port)) {
+    app.listen(port, () => console.log(`Server is running...on port ${port}`))
 } else {
-    console.error("Invalid Port")
+    console.log("Invalid Port")
 }
