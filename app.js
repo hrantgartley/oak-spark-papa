@@ -9,13 +9,13 @@ app.use(bodyParser.urlencoded({ extended: true }))
 4
 let myVariableServer = "soft coded server data"
 
-app.get("/meep", function (_req, res) {
+app.get("/meep", (_req, res) => {
     res.render("index", {
         myVariableClient: myVariableServer,
     })
 })
 
-app.post("/postClientData", function (req, res) {
+app.post("/postClientData", (req, res) => {
     console.log("body: ", req.body)
     console.log("user Name: ", req.body.userName)
 
@@ -24,11 +24,11 @@ app.post("/postClientData", function (req, res) {
     })
 })
 
-app.get("/", function (_req, res) {
+app.get("/", (_req, res) => {
     res.send("<h1>Hello World From Express & a PaaS/Render</h1>")
 })
 
-app.get("/whatever", function (_req, res) {
+app.get("/whatever", (_req, res) => {
     res.sendFile(__dirname + "/index.html")
 })
 
