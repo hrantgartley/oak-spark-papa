@@ -1,7 +1,7 @@
 const express = require("express")
 const route = express()
 const bodyParser = require("body-parser")
-const port = process.env.PORT || 3000
+const port = 3000
 const portArray = [80, 443, undefined, NaN, null]
 
 route.set("view engine", "ejs")
