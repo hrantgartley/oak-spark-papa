@@ -33,7 +33,7 @@ route.get("/whatever", (_req, res) => {
 })
 
 if (!portArray.includes(port)) {
-    route.listen(port, () => console.log(`Server is running...on port ${port}`))
+    route.listen(port, () => console.log(`Server is listening on port ${port}`))
 } else {
     console.log("Invalid Port")
 }
