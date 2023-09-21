@@ -1,10 +1,11 @@
+require("dotenv").config()
 const express = require("express")
 const route = express()
 const bodyParser = require("body-parser")
 // eslint-disable-next-line no-unused-vars
 const { ObjectId } = require("mongodb")
-const uri =
-    "mongodb+srv://granthartley:2VSvwD3Aqhpa3AwD@cluster0.sh7wwbq.mongodb.net/?retryWrites=true&w=majority"
+const uri = process.env.MONGO_URI
+
 const port = process.env.PORT || 3000
 const portArray = [80, 443, undefined, NaN, null]
 
@@ -74,19 +75,3 @@ async function cxnDB() {
         client.close
     }
 }
-/*
-async function run() {
-    try {
-        // Connect the client to the server	(optional starting in v4.7)
-        await client.connect()
-        // Send a ping to confirm a successful connection
-        await client.db("admin").command({ ping: 1 })
-        console.log(
-            "Pinged your deployment. You successfully connected to MongoDB!"
-        )
-    } finally {
-        // Ensures that the client will close when you finish/error
-        await client.close()
-    }
-} */
-// run().catch(console.dir)
