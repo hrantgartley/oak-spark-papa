@@ -12,6 +12,9 @@
     "scripts": {
         "dev": "nodemon app.js"
     },
+    "engines": {
+        "node": "^8 || ^10"
+    },
     "keywords": [],
     "author": "",
     "license": "ISC"
