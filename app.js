@@ -1,10 +1,10 @@
 const express = require("express")
 const route = express()
 const bodyParser = require("body-parser")
+require("dotenv").config()
 // eslint-disable-next-line no-unused-vars
 const { ObjectId } = require("mongodb")
-const uri =
-    "mongodb+srv://granthartley:2VSvwD3Aqhpa3AwD@cluster0.sh7wwbq.mongodb.net/?retryWrites=true&w=majority"
+const uri = process.env.MONGO_URI
 const port = process.env.PORT || 3000
 const portArray = [80, 443, undefined, NaN, null]
 
