@@ -1,6 +1,10 @@
 const express = require("express")
 const route = express()
 const bodyParser = require("body-parser")
+// eslint-disable-next-line no-unused-vars
+const { ObjectId } = require("mongodb")
+const uri =
+    "mongodb+srv://granthartley:2VSvwD3Aqhpa3AwD@cluster0.sh7wwbq.mongodb.net/?retryWrites=true&w=majority"
 const port = process.env.PORT || 3000
 const portArray = [80, 443, undefined, NaN, null]
 
@@ -8,6 +12,11 @@ route.set("view engine", "ejs")
 route.use(bodyParser.urlencoded({ extended: true }))
 
 let myVariableServer = "soft coded server data"
+
+route.get("/", async (_req, res) => {
+    let result = await cxnDB()
+    res.send("Here for a second: " + result[0].name)
+})
 
 route.get("/meep", (_req, res) => {
     res.render("index", {
@@ -39,8 +48,6 @@ if (!portArray.includes(port)) {
 }
 
 const { MongoClient, ServerApiVersion } = require("mongodb")
-const uri =
-    "mongodb+srv://granthartley:2VSvwD3Aqhpa3AwD@cluster0.sh7wwbq.mongodb.net/?retryWrites=true&w=majority"
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
@@ -51,6 +58,23 @@ const client = new MongoClient(uri, {
     },
 })
 
+// eslint disable no-unused-vars
+async function cxnDB() {
+    try {
+        client.connect
+        const collection = client.db("papa-database").collection("dev-profiles")
+        // const collection = client.db("papa").collection("dev-profiles");
+        const result = await collection.find().toArray()
+        //const result = await collection.findOne();
+        console.log("cxnDB result: ", result)
+        return result
+    } catch (e) {
+        console.log(e)
+    } finally {
+        client.close
+    }
+}
+/*
 async function run() {
     try {
         // Connect the client to the server	(optional starting in v4.7)
@@ -64,5 +88,5 @@ async function run() {
         // Ensures that the client will close when you finish/error
         await client.close()
     }
-}
-run().catch(console.dir)
+} */
+// run().catch(console.dir)
