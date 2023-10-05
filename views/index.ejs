@@ -1,14 +1,32 @@
-<h1>Hello from index.html</h1>
+<% include('partials/html-head')
+<body class="entire-page"> 
+  <div class="row">
 
+    <h1> Add/Delete Ice Cream Flavors </h1>
 
+    <% for (var i=0; i< icecreamData.length; i++ ) { %>
+      <form method="POST">  
+        <input type="hidden" id="icecreamId" name="icecreamId" value="<%= icecreamData[i]._id %>"></input>
+        <input type="text" id="devName" name="devName" value="<%= icecreamData[i].name %>"></input>
 
-<form action="/postClientData" method="POST">
+        <button class="btn btn-primary" type="submit" formaction="/updateIcecream">Update Dev Name</button>
+        <button class="btn btn-warning" type="submit" formaction="/deleteIcecream">Delete Dev </button>
 
-    <input type="text" id="userName" name="userName" value=""></input>
+      </form>
+      <br>
+      <% } %>
+  </div>
 
-    <button class="btn btn-primary" type="submit">submit</button>
+  <div class="col-md-6">
+  <h2> Enter new ice cream here </h2>
+  <form action="/insertIcecream" method="POST">
 
+    <input type="text" id="newIcecreamName" placeholder="new iceream here"> </input>
+
+    <button class="btn btn-primary" type="submit"> Insert New Icecream Flavor</button>
   </form>
+  </div>
+</div>
 
-
-<%= myVariableClient %> 
+</body>
+</html>
