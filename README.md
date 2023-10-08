@@ -1,18 +1,33 @@
-# Hello
+# reimagined-guide-mike
 
-Hello with express js
+[486🚀](https://gist.github.com/barrycumbie/bbf76cb219a3e7579de1607d7e91fceb)
 
-- Initialize git repo inside of local devBox
-- Open a terminal with git and node installed
+# Dev Lab Mike 486
 
-- If no node go download from nodejs.org
-- Checking for npm
-  - Check version
+## User Story 
 
-- Check for git on local devBox
+**As A** dev(eloper) :point_right: use this only here, never again 
 
-- Go back to github and copy path for git clone
-- Open our cloned repo into IDE of choice
+**I Want** to say hello from express
 
-- Currently opened in local repo and ready to code
-- 
+**So That** I can be real cool dev 
+
+==
+
+**As A** user interested in Node and Express? 
+
+**I Want** go to a url 
+
+**So That** I can see a message from the server. 
+
+## Resources
+- Cumbie's Fall 2023 Dev Notes Gist: https://gist.github.com/barrycumbie/f7ea9afd807816813e9593029e3c5dad
+
+## Min Acceptance Criteria 
+
+- [x] publish to a url
+- [x] transmit a msg from the server
+- [x] node running
+- [x] express expose it to the web 
+
+## Solution Example: https://github.com/barrycumbie/laughing-sniffle 
